@@ -34,7 +34,8 @@ function suggestTags(app: App, q: string, limit: number): Suggestion[] {
 function suggestPaths(app: App, q: string, limit: number): Suggestion[] {
 	const folders: TFolder[] = [];
 	const collect = (folder: TFolder) => {
-		if (folder.path !== "/") folders.push(folder);
+		// Skip the vault root (path is "").
+		if (folder.path) folders.push(folder);
 		for (const child of folder.children) {
 			if (child instanceof TFolder) collect(child);
 		}
@@ -49,12 +50,16 @@ function suggestPaths(app: App, q: string, limit: number): Suggestion[] {
 }
 
 function suggestFiles(app: App, q: string, limit: number): Suggestion[] {
-	const files: TFile[] = app.vault.getMarkdownFiles();
+	// `file:` in Obsidian search matches any file in the vault (markdown, canvas,
+	// images, PDFs, etc.) by filename. Use `getFiles()` and the full name (with
+	// extension) so the inserted value is unambiguous — `meu.canvas` won't be
+	// collapsed to `meu` and accidentally also match `meu.md`.
+	const files: TFile[] = app.vault.getFiles();
 	return files
-		.filter((f) => f.basename.toLowerCase().includes(q))
-		.sort((a, b) => a.basename.localeCompare(b.basename))
+		.filter((f) => f.name.toLowerCase().includes(q))
+		.sort((a, b) => a.name.localeCompare(b.name))
 		.slice(0, limit)
-		.map((f) => ({ value: f.basename, detail: f.parent?.path ?? "" }));
+		.map((f) => ({ value: f.name, detail: f.parent?.path ?? "" }));
 }
 
 export class AutocompletePopup {
