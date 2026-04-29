@@ -330,7 +330,10 @@ export class FilterBuilderSection {
 
 		if (parts.length === 0) return "";
 		if (parts.length === 1) return parts[0]!;
-		return parts.map((p) => `(${p})`).join(" AND ");
+		// Space-separated is the documented form for implicit AND.
+		// Explicit AND breaks the graph filter parser when combined with
+		// negated terms.
+		return parts.map((p) => `(${p})`).join(" ");
 	}
 }
 
