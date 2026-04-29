@@ -26,9 +26,9 @@ The reload icon in the panel header clears all lines.
 
 ## Limitations
 
+- **Desktop only** — the plugin queries internal DOM of the graph view that isn't available on mobile.
 - **Global graph only** — local graphs are not targeted.
 - **No reverse parsing** — opening the panel doesn't reconstruct lines from a filter that was typed manually into the native input. The panel always starts from a clean state.
-- **Mobile not officially supported** — the plugin relies on internal DOM structure of the graph view that may differ on mobile.
 - **Internal API usage** — the plugin queries internal DOM (`.graph-controls`, `.suggestion-container`) that aren't part of Obsidian's public API. A future Obsidian update could break it. Issues welcome.
 
 ## Installation

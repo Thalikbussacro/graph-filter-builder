@@ -1,9 +1,9 @@
 {
   "id": "graph-filter-builder",
   "name": "Graph Filter Builder",
-  "version": "0.5.3",
-  "minAppVersion": "1.0.0",
-  "description": "Adds a Filter Builder panel to the graph view — structured Include/Exclude lines for tag/path/file with autocomplete. Lives at the top-left of the graph and live-updates the native filter input.",
+  "version": "0.6.0",
+  "minAppVersion": "1.5.0",
+  "description": "Build graph view filters as structured include/exclude lines with autocomplete for tags, paths, and files.",
   "author": "Thalik",
-  "isDesktopOnly": false
+  "isDesktopOnly": true
 }
