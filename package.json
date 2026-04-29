@@ -1,6 +1,6 @@
 {
 	"name": "graph-filter-builder",
-	"version": "0.5.1",
+	"version": "0.5.2",
 	"description": "Structured Include/Exclude filter builder for the graph view, with autocomplete for tags, paths and files.",
 	"main": "main.js",
 	"type": "module",

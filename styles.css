@@ -236,9 +236,7 @@
 }
 
 .gfb-ac-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: block;
   padding: 6px 10px;
   cursor: pointer;
   font-family: var(--font-monospace);
@@ -251,14 +249,18 @@
 }
 
 .gfb-ac-value {
-  flex: 1;
+  display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .gfb-ac-detail {
+  display: block;
   color: var(--text-muted);
-  font-size: 0.85em;
-  margin-left: 8px;
+  font-size: 0.78em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-top: 1px;
 }
