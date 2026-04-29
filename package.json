@@ -1,0 +1,34 @@
+{
+	"name": "graph-filter-builder",
+	"version": "0.5.0",
+	"description": "Structured Include/Exclude filter builder for the graph view, with autocomplete for tags, paths and files.",
+	"main": "main.js",
+	"type": "module",
+	"author": "Thalik",
+	"license": "MIT",
+	"keywords": [
+		"obsidian",
+		"obsidian-plugin",
+		"graph-view"
+	],
+	"scripts": {
+		"dev": "node esbuild.config.mjs",
+		"build": "tsc -noEmit -skipLibCheck && node esbuild.config.mjs production",
+		"version": "node version-bump.mjs && git add manifest.json versions.json",
+		"lint": "eslint ."
+	},
+	"devDependencies": {
+		"@types/node": "^16.11.6",
+		"esbuild": "0.25.5",
+		"eslint-plugin-obsidianmd": "0.1.9",
+		"globals": "14.0.0",
+		"tslib": "2.4.0",
+		"typescript": "^5.8.3",
+		"typescript-eslint": "8.35.1",
+		"@eslint/js": "9.30.1",
+		"jiti": "2.6.1"
+	},
+	"dependencies": {
+		"obsidian": "latest"
+	}
+}
